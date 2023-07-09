@@ -32,7 +32,7 @@ class GithubStatsAkkaHttpAdapter(port: Int)(implicit val useCase: PRSummaryUseCa
     implicit val actorSystem: ActorSystem = ActorSystem()
     import actorSystem.dispatcher
     val routes: Route = AkkaHttpServerInterpreter().toRoute(serverEndpoints)
-    val server = Http().newServerAt("localhost", port).bind(routes)
+    val server = Http().newServerAt("0.0.0.0", port).bind(routes)
     server
       .map(_.addToCoordinatedShutdown(hardTerminationDeadline = 10 seconds))
       .onComplete(_ => {
