@@ -1,9 +1,9 @@
 package com.example.prstats.adapter.out
 
-import com.example.prstats.application.port.out.GithubServicePort
+import com.example.prstats.application.port.out.GithubSearchPort
 import com.example.prstats.domain.{PRItem}
 
-final case class GithubServiceTestAdapter() extends GithubServicePort {
+final case class GithubSearchTestAdapter() extends GithubSearchPort {
 
   override def searchByUser(username: String): List[PRItem] =
     GithubServiceTestAdapter.sampleList1

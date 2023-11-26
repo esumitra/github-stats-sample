@@ -7,9 +7,9 @@ package com.example
 import com.example.config.{ConfigUtils, CookieSettings, GithubStatsConfig}
 import pureconfig.generic.auto._
 import com.typesafe.scalalogging.{LazyLogging}
-import com.example.prstats.adapter.in.GithubStatsAkkaHttpAdapter
+import com.example.prstats.adapter.in.GithubStatsWebAdapter
 import com.example.prstats.application.PRStatsService
-import com.example.prstats.adapter.out.GithubServiceTestAdapter
+import com.example.prstats.adapter.out.GithubSearchTestAdapter
 
 object MainApp extends LazyLogging {
 
@@ -32,9 +32,9 @@ object MainApp extends LazyLogging {
   }
 
   def startAPIServer(ghConf: GithubStatsConfig): Unit = {
-    implicit val ghService: GithubServiceTestAdapter = GithubServiceTestAdapter()
+    implicit val ghSearch: GithubSearchTestAdapter = GithubSearchTestAdapter()
     implicit val useCase = new PRStatsService
-    val server = new GithubStatsAkkaHttpAdapter(ghConf.serverPort)
+    val server = new GithubStatsWebAdapter(ghConf.serverPort)
     server.startServer
   }
 }
