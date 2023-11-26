@@ -35,6 +35,8 @@ Use the command below to stage the Docker files to review and debug the Docker i
 
 `sbt docker:publishLocal`
 
+Ignore any errors if you see the message `Built image esumitra/github-stats-service with tags [0.1.0-SNAPSHOT]`
+
 6. Publish Docker image to dockerhub
 
 ```
@@ -52,7 +54,7 @@ sbt docker:publish
 
 3. Test the service
 
-`curl -d '{"username": "ed"}' http://localhost:4000/api/1.0/summary/user` for testing single instance OR
+`curl -d '{"username": "ed"}' http://localhost:8080/api/1.0/summary/user` for testing single instance OR
 
 `curl -d '{"username": "ed"}' http://localhost:4000/api/1.0/summary/user` for testing scaled system with load balancer
 ### Static Analysis Tools
