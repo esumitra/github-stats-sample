@@ -54,9 +54,18 @@ sbt docker:publish
 
 3. Test the service
 
-`curl -d '{"username": "ed"}' http://localhost:8080/api/1.0/summary/user` for testing single instance OR
+User curl or Postman to testing a single instance of the service
 
-`curl -d '{"username": "ed"}' http://localhost:4000/api/1.0/summary/user` for testing scaled system with load balancer
+```
+curl -X GET -d '{"username": "edsum"}' http://localhost:8080/api/1.0/summary/user
+
+curl -X GET -d '{"reponame": "samplerepo"}' http://localhost:8080/api/1.0/summary/repo
+``` 
+
+OR
+
+`curl -X GET -d '{"username": "edsum"}' http://localhost:4000/api/1.0/summary/user` for testing scaled system with load balancer
+
 ### Static Analysis Tools
 
 #### Scalafmt

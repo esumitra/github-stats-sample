@@ -1,5 +1,7 @@
 /**
   * main entry point for application
+  * run with:
+  * sbt "runMain com.example.MainApp"
   */
 
 package com.example

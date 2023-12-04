@@ -15,13 +15,18 @@ case class UserSummary (
   count: Long
 )
 
+case class RepoSummary (
+  repositoryName: String,
+  count: Long
+)
+
 // error types
 case class ErrorInfo(error: String)
 
 object GithubStatsRESTAPI {
   
   // endpoints as values
-  // curl -d '{"username": "ed"}' http://localhost:8080/api/1.0/summary/user
+  // curl -X GET -d '{"username": "ed"}' http://localhost:8080/api/1.0/summary/user
   val baseEndpoint =
     endpoint
       .in("api" / "1.0" / "summary")
@@ -29,9 +34,15 @@ object GithubStatsRESTAPI {
 
   val userSummary = 
     baseEndpoint
-      .post
+      .get
       .in("user")
       .in(jsonBody[Username])
       .out(jsonBody[UserSummary])
 
+  val repoSummary = 
+    baseEndpoint
+      .get
+      .in("repo")
+      .in(jsonBody[Reponame])
+      .out(jsonBody[RepoSummary])
 }

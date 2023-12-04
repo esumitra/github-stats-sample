@@ -18,8 +18,14 @@ class GithubStatsWebAdapter(port: Int)(implicit val useCase: PRSummaryUseCase) e
       UserSummary(name.username, stats).asRight
     }
 
+    def generateRepoSummary(name: Reponame): Future[Either[(StatusCode, ErrorInfo), RepoSummary]] = Future {
+      val stats = useCase.repoSummary(name.reponame)
+      RepoSummary(name.reponame, stats).asRight
+    }
+
     List(
-      GithubStatsRESTAPI.userSummary.serverLogic(generateUserSummary)
+      GithubStatsRESTAPI.userSummary.serverLogic(generateUserSummary),
+      GithubStatsRESTAPI.repoSummary.serverLogic(generateRepoSummary),
     )
   }
 

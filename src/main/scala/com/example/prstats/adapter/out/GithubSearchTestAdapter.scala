@@ -1,7 +1,7 @@
 package com.example.prstats.adapter.out
 
 import com.example.prstats.application.port.out.GithubSearchPort
-import com.example.prstats.domain.{PRItem}
+import com.example.prstats.domain.PRDomainModel._
 
 final case class GithubSearchTestAdapter() extends GithubSearchPort {
 
