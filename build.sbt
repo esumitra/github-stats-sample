@@ -19,7 +19,7 @@ lazy val root =
       "-unchecked",
       "-language:postfixOps",
       "-language:higherKinds", // HKT required for Monads and other HKT types
-      "-Wunused", // for scalafix
+      // "-Wunused", // for scalafix
       "-Yrangepos", // required for semantic db
     ),
     run / fork := true,

@@ -10,6 +10,8 @@ object Dependencies {
   val circeVersion = "0.14.1"
   val pureconfigVersion = "0.17.4"
   val catsVersion = "2.9.0"
+  val refinedVersion = "0.11.0"
+  val tapirVersion = "1.6.0"
 
   lazy val core = Seq(
     // cats FP libary
@@ -29,23 +31,25 @@ object Dependencies {
     "com.softwaremill.quicklens" %% "quicklens" % "1.9.4",
 
     // refined types
-    "eu.timepit" %% "refined"                 % "0.11.0",
-    "eu.timepit" %% "refined-cats"            % "0.11.0", // optional
-    "eu.timepit" %% "refined-eval"            % "0.11.0", // optional, JVM-only
-    "eu.timepit" %% "refined-jsonpath"        % "0.11.0", // optional, JVM-only
-    "eu.timepit" %% "refined-pureconfig"      % "0.11.0", // optional, JVM-only
-    "eu.timepit" %% "refined-scalacheck"      % "0.11.0", // optional
-    "eu.timepit" %% "refined-scalaz"          % "0.11.0", // optional
-    "eu.timepit" %% "refined-scodec"          % "0.11.0", // optional
-    "eu.timepit" %% "refined-scopt"           % "0.11.0", // optional
-    "eu.timepit" %% "refined-shapeless"       % "0.11.0",  // optional
+    "eu.timepit" %% "refined"                 % refinedVersion,
+    "eu.timepit" %% "refined-cats"            % refinedVersion, // optional
+    "eu.timepit" %% "refined-eval"            % refinedVersion, // optional, JVM-only
+    "eu.timepit" %% "refined-jsonpath"        % refinedVersion, // optional, JVM-only
+    "eu.timepit" %% "refined-pureconfig"      % refinedVersion, // optional, JVM-only
+    "eu.timepit" %% "refined-scalacheck"      % refinedVersion, // optional
+    "eu.timepit" %% "refined-scalaz"          % refinedVersion, // optional
+    "eu.timepit" %% "refined-scodec"          % refinedVersion, // optional
+    "eu.timepit" %% "refined-scopt"           % refinedVersion, // optional
+    "eu.timepit" %% "refined-shapeless"       % refinedVersion,  // optional
     
-    // http
-    "com.softwaremill.sttp.tapir" %% "tapir-core" % "1.6.0",
-    "com.softwaremill.sttp.tapir" %% "tapir-json-circe" % "1.6.0",
-    "com.softwaremill.sttp.tapir" %% "tapir-sttp-client" % "1.6.0",
-    // "com.softwaremill.sttp.tapir" %% "tapir-http4s-server" % "1.6.0",
-    "com.softwaremill.sttp.tapir" %% "tapir-akka-http-server" % "1.6.0",
+    // opaque types / new types
+    "io.estatico" %% "newtype" % "0.4.4",
+    
+    // REST API and http server
+    "com.softwaremill.sttp.tapir" %% "tapir-core" % tapirVersion,
+    "com.softwaremill.sttp.tapir" %% "tapir-json-circe" % tapirVersion,
+    "com.softwaremill.sttp.tapir" %% "tapir-sttp-client" % tapirVersion,
+    "com.softwaremill.sttp.tapir" %% "tapir-akka-http-server" % tapirVersion,
 
     // logging
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
