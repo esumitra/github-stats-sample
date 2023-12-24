@@ -45,4 +45,10 @@ object GithubStatsRESTAPI {
       .in("repo")
       .in(jsonBody[Reponame])
       .out(jsonBody[RepoSummary])
+
+  val allAppRoutes = List(
+    userSummary,
+    repoSummary
+  )
+  
 }
