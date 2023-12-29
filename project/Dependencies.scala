@@ -51,6 +51,7 @@ object Dependencies {
     "com.softwaremill.sttp.tapir" %% "tapir-sttp-client" % tapirVersion,
     "com.softwaremill.sttp.tapir" %% "tapir-akka-http-server" % tapirVersion,
     "com.softwaremill.sttp.tapir" %% "tapir-swagger-ui-bundle" % tapirVersion,
+    "com.softwaremill.sttp.tapir" %% "tapir-prometheus-metrics" % tapirVersion,
 
     // logging
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",

@@ -66,6 +66,10 @@ OR
 
 `curl -X GET -d '{"username": "edsum"}' http://localhost:4000/api/1.0/summary/user` for testing scaled system with load balancer
 
+4. Observability
+
+To view the observability metrics provided by Prometheus open the page at http://localhost:9090 and search for `tapir_request_total`
+
 ### Static Analysis Tools
 
 #### Scalafmt
